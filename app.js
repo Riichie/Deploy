@@ -5,8 +5,6 @@ const cors = require('cors')
 const movies = require('./movies.json')
 const { validateMovie, validatePartialMovie } = require('./schemas/movies')
 
-const PORT = process.env.PORT ?? 1234
-
 const app = express()
 app.use(express.json())
 app.use(cors({
@@ -112,6 +110,8 @@ app.patch('/movies/:id', (req, res) => {
 app.get('/', (req, res) => {
   res.json({ message: 'Hola mundo' })
 })
+
+const PORT = process.env.PORT ?? 1234
 
 app.listen(PORT, () => {
   console.log(`server listening on port http://localhost:${PORT}`)
